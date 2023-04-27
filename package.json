@@ -1,0 +1,26 @@
+{
+  "name": "app-ui",
+  "version": "1.0.0",
+  "description": "## tools",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "npm run build && npm run release",
+    "build": "npx webpack build --mode development",
+    "release": "aws s3 sync dist/ s3://${BUCKET_NAME}/ --acl=public-read"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "html-webpack-plugin": "^5.5.0",
+    "webpack": "^5.76.2",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.13.2"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.312.0",
+    "@aws-sdk/credential-providers": "^3.312.0",
+    "@aws-sdk/s3-request-presigner": "^3.321.1",
+    "amazon-cognito-identity-js": "^6.1.2",
+    "uuid": "^9.0.0"
+  }
+}
